@@ -1,5 +1,5 @@
 library("processMineR.models")
-context("processMineR.models.batchLoad")
+context("Models.batchLoad")
 
 library(regressoR)
 
@@ -78,7 +78,7 @@ slow.tests <- is.na(Sys.getenv("TRAVIS", unset=NA))
     .check(res);
   }
 
-  results <- processMineR.models::processMineR.batchLoad(source=file.path(data[1], "models"),
+  results <- processMineR.models::Models.batchLoad(source=file.path(data[1], "models"),
                                                cores=cores,
                                                logging=FALSE,
                                                featuresLoader=NULL);
@@ -109,19 +109,19 @@ slow.tests <- is.na(Sys.getenv("TRAVIS", unset=NA))
 }
 
 
-test_that("Test processMineR.models.batchLoad I", {
+test_that("Test Models.batchLoad I", {
   .test(cores=1L);
 })
 
-test_that("Test processMineR.models.batchLoad II", {
+test_that("Test Models.batchLoad II", {
   .test(cores=2L);
 })
 
-test_that("Test processMineR.models.batchLoad III", {
+test_that("Test Models.batchLoad III", {
   if(slow.tests) { .test(cores=3L); }
 })
 
-test_that("Test processMineR.models.batchLoad IIII", {
+test_that("Test Models.batchLoad IIII", {
   if(slow.tests) { .test(cores=4L); }
 })
 

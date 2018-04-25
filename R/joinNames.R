@@ -3,8 +3,8 @@
 #'   their common components. Name components are separated by slashes ("/").
 #' @param names the vector of names
 #' @return a single string of the common name components only
-#' @export processMineR.joinNames
-processMineR.joinNames <- function(names) {
+#' @export Models.joinNames
+Models.joinNames <- function(names) {
   l <- length(names);
   if(l <= 0L) { return("unnamed"); }
   if(l <= 1L) { return(names[[1L]]); }

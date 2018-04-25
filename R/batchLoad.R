@@ -25,15 +25,15 @@
 #' @importFrom utilizeR path.batchApply path.extensionRegExp makeLogger
 #' @importFrom regressoR regressoR.loadResult
 #' @importFrom utilizeR path.relativize
-#' @export processMineR.batchLoad
-processMineR.batchLoad <- function(source=getwd(),
-                              selector=path.extensionRegExp(extensions="model", before.extension="_single"),
-                              featuresFolder=file.path(source, "../features"),
-                              featuresLoader=features.defaultLoader,
-                              nameProcessor=identity,
-                              check.directory=NULL,
-                              cores=1L,
-                              logging=(cores <= 1L)) {
+#' @export Models.batchLoad
+Models.batchLoad <- function(source=getwd(),
+                             selector=path.extensionRegExp(extensions="model", before.extension="_single"),
+                             featuresFolder=file.path(source, "../features"),
+                             featuresLoader=features.defaultLoader,
+                             nameProcessor=identity,
+                             check.directory=NULL,
+                             cores=1L,
+                             logging=(cores <= 1L)) {
 
   source <- force(source);
   source <- normalizePath(source);

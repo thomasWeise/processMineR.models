@@ -15,10 +15,10 @@
 #'   according to \code{namer} and the features have been selected according to
 #'   \code{features.ignore} and \code{features.keep} where the \code{models}
 #'   members of instances with the same features have been merged
-#' @export processMineR.mergeModels
-processMineR.mergeModels <- function(models, features.ignore=NULL,
-                                    features.keep=NULL,
-                                    namer=processMineR.joinNames) {
+#' @export Models.merge
+Models.merge <- function(models, features.ignore=NULL,
+                                 features.keep=NULL,
+                                 namer=Models.joinNames) {
   # if there are no models, we are done here
   n <- length(models);
   if(length(n) <= 0L) {
