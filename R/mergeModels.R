@@ -9,7 +9,7 @@
 #' @param features.keep a vector of the names of the (only) features to keep, or
 #'   \code{NULL} if all non-deleted features should be kept
 #' @param namer a function used to join names of model sets that now have
-#'   identical features, see \code{\link{processMineR.joinNames}} for
+#'   identical features, see \code{\link{Models.joinNames}} for
 #'   documentation
 #' @return a list of \code{\link{Models}} where all names have been transformed
 #'   according to \code{namer} and the features have been selected according to

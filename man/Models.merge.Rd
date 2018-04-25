@@ -17,7 +17,7 @@ Models.merge(models, features.ignore = NULL, features.keep = NULL,
 \code{NULL} if all non-deleted features should be kept}
 
 \item{namer}{a function used to join names of model sets that now have
-identical features, see \code{\link{processMineR.joinNames}} for
+identical features, see \code{\link{Models.joinNames}} for
 documentation}
 }
 \value{
