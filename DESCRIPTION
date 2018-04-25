@@ -1,0 +1,37 @@
+Package: processMineR.models
+Type: Package
+Title: An R Package for Loading and Processing Models Built with \code{regressoR} and Annotating them with Features
+Version: 0.8.0
+Author: Dr. Thomas Weise <tweise@hfuu.edu.cn>
+Maintainer: Dr. Thomas Weise <tweise@hfuu.edu.cn>
+Description: With this package, we can load the models trained with the \code{regressoR} package and annotate them features. You can also merge different model sets based on the feature values.
+License: LGPL-3
+Encoding: UTF-8
+LazyData: true
+URL: http://www.github.com/thomasWeise/processMineR.models
+BugReports: http://www.github.com/thomasWeise/processMineR.models/issues
+Imports: data.table (>= 1.10.4.3),
+         dataTransformeR (>= 0.8.10),
+         methods (>= 3.3.2),
+         regressoR (>= 0.8.6),
+         regressoR.base (>= 0.8.5),
+         regressoR.functional (>= 0.8.7),
+         regressoR.quality (>= 0.8.4),
+         utils (>= 3.3.2),
+         utilizeR (>= 0.8.3)
+Suggests: testthat (>= 2.0.0),
+          roxygen2 (>= 6.0.1)
+Remotes: github::thomasWeise/dataTransformeR,
+         github::thomasWeise/regressoR,
+         github::thomasWeise/regressoR.base,
+         github::thomasWeise/regressoR.functional,
+         github::thomasWeise/regressoR.quality,
+         github::thomasWeise/utilizeR
+RoxygenNote: 6.0.1.9000
+Collate:
+    'Models.R'
+    'featuresTxtLoader.R'
+    'featuresDefaultLoader.R'
+    'batchLoad.R'
+    'joinNames.R'
+    'mergeModels.R'
