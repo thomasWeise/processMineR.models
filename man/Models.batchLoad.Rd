@@ -37,7 +37,7 @@ printing to the console via \code{\link{print}}, \code{FALSE} for no
 logging, or a path to a file receiving logging information}
 }
 \value{
-a list of \code{\link{RegressionResults}} instances
+a list of \code{\link{Models}} instances
 }
 \description{
 Load all the setup results built by

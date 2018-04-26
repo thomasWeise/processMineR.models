@@ -3,7 +3,7 @@
 
 #' @title Create a Combination or Selection of Models
 #' @description Merge a set of models according to a given name transformation.
-#' @param models the list of instances of \code{\link{RegressionResults}}
+#' @param models the list of instances of \code{\link{Models}}
 #' @param features.ignore a vector of names of features to delete, or
 #'   \code{NULL} if no features should explicitly be deleted
 #' @param features.keep a vector of the names of the (only) features to keep, or

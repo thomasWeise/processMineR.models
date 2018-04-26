@@ -8,7 +8,7 @@ Models.merge(models, features.ignore = NULL, features.keep = NULL,
   namer = Models.joinNames)
 }
 \arguments{
-\item{models}{the list of instances of \code{\link{RegressionResults}}}
+\item{models}{the list of instances of \code{\link{Models}}}
 
 \item{features.ignore}{a vector of names of features to delete, or
 \code{NULL} if no features should explicitly be deleted}
