@@ -1,9 +1,15 @@
-#' @title Convert the Model Features, Feature Names, and Model Names into a Data Frame
-#' @description Create a data frame which represents all the meta-information about the models.
+#' @title Convert the Model Features, Feature Names, and Model Names into a Data
+#'   Frame
+#' @description Create a data frame which represents all the meta-information
+#'   about the models.
 #' @param models the models
-#' @param stringsAsFactors convert strings to factors
+#' @param stringsAsFactors convert strings to factors if \code{TRUE}, keep them
+#'   as strings if \code{FALSE}
 #' @return the data frame
 #' @export Models.as.data.frame
+#' @include featureNames.R
+#' @include featureValues.R
+#' @include names.R
 Models.as.data.frame <- function(models, stringsAsFactors=TRUE) {
   features <- Models.featureNames(models);
   values <- lapply(X=features, FUN=function(feature) Models.featureValues(models, feature));

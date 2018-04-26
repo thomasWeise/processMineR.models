@@ -2,18 +2,21 @@
 % Please edit documentation in R/asDataFrame.R
 \name{Models.as.data.frame}
 \alias{Models.as.data.frame}
-\title{Convert the Model Features, Feature Names, and Model Names into a Data Frame}
+\title{Convert the Model Features, Feature Names, and Model Names into a Data
+  Frame}
 \usage{
 Models.as.data.frame(models, stringsAsFactors = TRUE)
 }
 \arguments{
 \item{models}{the models}
 
-\item{stringsAsFactors}{convert strings to factors}
+\item{stringsAsFactors}{convert strings to factors if \code{TRUE}, keep them
+as strings if \code{FALSE}}
 }
 \value{
 the data frame
 }
 \description{
-Create a data frame which represents all the meta-information about the models.
+Create a data frame which represents all the meta-information
+  about the models.
 }
