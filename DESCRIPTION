@@ -30,10 +30,12 @@ Remotes: github::thomasWeise/dataTransformeR,
 RoxygenNote: 6.0.1.9000
 Collate: 
     'Models.R'
+    'asDataFrame.R'
     'featuresTxtLoader.R'
     'featuresDefaultLoader.R'
     'batchLoad.R'
     'featureNames.R'
+    'featureValues.R'
     'joinNames.R'
     'mergeModels.R'
     'names.R'
