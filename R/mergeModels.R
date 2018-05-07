@@ -70,14 +70,14 @@ Models.merge <- function(models, features.ignore=NULL,
                 which(vapply(X=features.all, FUN=identical, FUN.VALUE=FALSE, features)));
 
   # pick the matching models and create and return a new list of models
-  result <- lapply(X=selection, FUN=function(sel) {
-    sel <- unlist(lapply(X=sel, FUN=function(i) models[[i]]), recursive=TRUE);
+  result <- lapply(X=seq_len(m), FUN=function(sel.index) {
+    sel <- unlist(lapply(X=selection[[sel.index]], FUN=function(i) models[[i]]), recursive=TRUE);
     sel.models <- unlist(lapply(X=sel, FUN=function(m) m@models), recursive=TRUE);
     sel.models <- force(sel.models);
     sel.name   <- namer(unlist(lapply(X=sel, FUN=function(m) m@name), recursive=TRUE));
     sel.name   <- force(sel.name);
     Models.new(name=sel.name,
-               features=features,
+               features=features.unique[[sel.index]],
                models=sel.models)
   });
 
