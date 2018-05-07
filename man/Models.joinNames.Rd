@@ -4,10 +4,12 @@
 \alias{Models.joinNames}
 \title{Join a Set of Names by Keeping only the Identical Parts}
 \usage{
-Models.joinNames(names)
+Models.joinNames(names, features = NULL)
 }
 \arguments{
 \item{names}{the vector of names}
+
+\item{features}{the vector of feature values}
 }
 \value{
 a single string of the common name components only
@@ -15,4 +17,5 @@ a single string of the common name components only
 \description{
 This function receives a vector of names and tries to keep only
   their common components. Name components are separated by slashes ("/").
+  If no names can be found, use the features instead.
 }

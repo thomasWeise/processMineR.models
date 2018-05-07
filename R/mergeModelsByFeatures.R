@@ -1,5 +1,6 @@
 #' @include Models.R
 #' @include joinNames.R
+#' @include mergeModelsBySelection.R
 
 #' @title Create a Combination or Selection of Models
 #' @description Merge a set of models according to a given name transformation.
@@ -19,10 +20,10 @@
 #'   same features have been merged. The \code{selection} component contains,
 #'   for each element of \code{models}, a vector with indexes into the input
 #'   \code{models} list from where its components stem
-#' @export Models.merge
-Models.merge <- function(models, features.ignore=NULL,
-                                 features.keep=NULL,
-                                 namer=Models.joinNames) {
+#' @export Models.merge.by.features
+Models.merge.by.features <- function(models, features.ignore=NULL,
+                                     features.keep=NULL,
+                                     namer=Models.joinNames) {
   # if there are no models, we are done here
   n <- length(models);
   if(length(n) <= 0L) {
@@ -69,20 +70,11 @@ Models.merge <- function(models, features.ignore=NULL,
   selection <- lapply(X=features.unique, FUN=function(features)
                 which(vapply(X=features.all, FUN=identical, FUN.VALUE=FALSE, features)));
 
-  # pick the matching models and create and return a new list of models
-  result <- lapply(X=seq_len(m), FUN=function(sel.index) {
-    sel <- unlist(lapply(X=selection[[sel.index]], FUN=function(i) models[[i]]), recursive=TRUE);
-    sel.models <- unlist(lapply(X=sel, FUN=function(m) m@models), recursive=TRUE);
-    sel.models <- force(sel.models);
-    sel.name   <- namer(unlist(lapply(X=sel, FUN=function(m) m@name), recursive=TRUE));
-    sel.name   <- force(sel.name);
-    Models.new(name=sel.name,
-               features=features.unique[[sel.index]],
-               models=sel.models)
-  });
-
-  # create result list
-  result <- unname(unlist(result, recursive = TRUE));
+  # invoke the merging algorithm
+  result <- .Models.merge.by.selection(models=models,
+                                       selection=selection,
+                                       namer=namer,
+                                       features.unique=features.unique);
   result <- force(result);
   return(list(models=result, selection=selection));
 }

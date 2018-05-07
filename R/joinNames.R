@@ -1,10 +1,12 @@
 #' @title Join a Set of Names by Keeping only the Identical Parts
 #' @description This function receives a vector of names and tries to keep only
 #'   their common components. Name components are separated by slashes ("/").
+#'   If no names can be found, use the features instead.
 #' @param names the vector of names
+#' @param features the vector of feature values
 #' @return a single string of the common name components only
 #' @export Models.joinNames
-Models.joinNames <- function(names) {
+Models.joinNames <- function(names, features=NULL) {
   l <- length(names);
   if(l <= 0L) { return("unnamed"); }
   if(l <= 1L) { return(names[[1L]]); }
@@ -40,6 +42,13 @@ Models.joinNames <- function(names) {
       # join the column
       return(paste(nams, sep="", collapse="/"));
     }
+  }
+
+  # OK, if the names did not work, create a name based on the common features
+  if((!(is.null(features))) && (length(features) > 0L)) {
+    return(paste(vapply(X=ls(features),
+                        FUN=function(n) paste(n, "=", features[n], sep="", collapse=""), FUN.VALUE = ""),
+                 collapse=",",sep=""));
   }
   return("unnamed");
 }
