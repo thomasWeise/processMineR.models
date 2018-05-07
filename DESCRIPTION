@@ -20,6 +20,7 @@ Imports: data.table (>= 1.10.4.3),
          utilizeR (>= 0.8.3)
 Suggests: testthat (>= 2.0.0),
           roxygen2 (>= 6.0.1)
+Depends: R (>= 3.3.0)
 ByteCompile: true
 LazyData: true
 Remotes: github::thomasWeise/dataTransformeR,
