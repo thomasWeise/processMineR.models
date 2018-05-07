@@ -21,10 +21,14 @@ identical features, see \code{\link{Models.joinNames}} for
 documentation}
 }
 \value{
-a list of \code{\link{Models}} where all names have been transformed
-  according to \code{namer} and the features have been selected according to
-  \code{features.ignore} and \code{features.keep} where the \code{models}
-  members of instances with the same features have been merged
+a list of two components, \code{models} and \code{selection}. The
+  \code{models} component contains instances of \code{\link{Models}} where
+  all names have been transformed according to \code{namer} and the features
+  have been selected according to \code{features.ignore} and
+  \code{features.keep} where the \code{models} members of instances with the
+  same features have been merged. The \code{selection} component contains,
+  for each element of \code{models}, a vector with indexes into the input
+  \code{models} list from where its components stem
 }
 \description{
 Merge a set of models according to a given name transformation.

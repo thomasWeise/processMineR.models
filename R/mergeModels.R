@@ -11,10 +11,14 @@
 #' @param namer a function used to join names of model sets that now have
 #'   identical features, see \code{\link{Models.joinNames}} for
 #'   documentation
-#' @return a list of \code{\link{Models}} where all names have been transformed
-#'   according to \code{namer} and the features have been selected according to
-#'   \code{features.ignore} and \code{features.keep} where the \code{models}
-#'   members of instances with the same features have been merged
+#' @return a list of two components, \code{models} and \code{selection}. The
+#'   \code{models} component contains instances of \code{\link{Models}} where
+#'   all names have been transformed according to \code{namer} and the features
+#'   have been selected according to \code{features.ignore} and
+#'   \code{features.keep} where the \code{models} members of instances with the
+#'   same features have been merged. The \code{selection} component contains,
+#'   for each element of \code{models}, a vector with indexes into the input
+#'   \code{models} list from where its components stem
 #' @export Models.merge
 Models.merge <- function(models, features.ignore=NULL,
                                  features.keep=NULL,
@@ -22,7 +26,8 @@ Models.merge <- function(models, features.ignore=NULL,
   # if there are no models, we are done here
   n <- length(models);
   if(length(n) <= 0L) {
-    return(list());
+    .tmp <- list();
+    return(list(models=.tmp, selection=.tmp));
   }
 
   # check the parameters
@@ -51,17 +56,22 @@ Models.merge <- function(models, features.ignore=NULL,
 
   # if the list length is the same, we just update the names
   if(m >= n) {
-    return(unname(unlist(lapply(X=1L:n, FUN=function(i) {
+    return(list(models = unname(unlist(lapply(X=1L:n, FUN=function(i) {
       return(Models.new(name=namer(models[[i]]@name),
                         features=features.all[[i]],
                         models=models[[i]]@models));
-    }), recursive = TRUE)));
+    }), recursive = TRUE)),
+    selection=seq_len(n)));
   }
 
+  # create the selections: for each unique feature composition, compute the
+  # vector of indices of models that should be merged
+  selection <- lapply(X=features.unique, FUN=function(features)
+                which(vapply(X=features.all, FUN=identical, FUN.VALUE=FALSE, features)));
+
   # pick the matching models and create and return a new list of models
-  result <- lapply(X=features.unique, FUN=function(features) {
-    sel <- unlist(lapply(which(vapply(X=features.all, FUN=identical, FUN.VALUE=FALSE, features)),
-                        FUN=function(i) models[[i]]), recursive=TRUE);
+  result <- lapply(X=selection, FUN=function(sel) {
+    sel <- unlist(lapply(X=sel, FUN=function(i) models[[i]]), recursive=TRUE);
     sel.models <- unlist(lapply(X=sel, FUN=function(m) m@models), recursive=TRUE);
     sel.models <- force(sel.models);
     sel.name   <- namer(unlist(lapply(X=sel, FUN=function(m) m@name), recursive=TRUE));
@@ -74,5 +84,5 @@ Models.merge <- function(models, features.ignore=NULL,
   # create result list
   result <- unname(unlist(result, recursive = TRUE));
   result <- force(result);
-  return(result);
+  return(list(models=result, selection=selection));
 }
