@@ -12,6 +12,7 @@ BugReports: http://www.github.com/thomasWeise/processMineR.models/issues
 Imports: data.table (>= 1.10.4.3),
          dataTransformeR (>= 0.8.10),
          methods (>= 3.3.2),
+         plotteR (>= 0.8.0),
          regressoR (>= 0.8.6),
          regressoR.base (>= 0.8.5),
          regressoR.functional (>= 0.8.7),
@@ -24,6 +25,7 @@ Depends: R (>= 3.3.0)
 ByteCompile: true
 LazyData: true
 Remotes: github::thomasWeise/dataTransformeR,
+         github::thomasWeise/plotteR,
          github::thomasWeise/regressoR,
          github::thomasWeise/regressoR.base,
          github::thomasWeise/regressoR.functional,
@@ -40,6 +42,7 @@ Collate:
     'featuresTxtLoader.R'
     'featuresDefaultLoader.R'
     'batchLoad.R'
+    'batchPlot.R'
     'joinNames.R'
     'mergeModelsBySelection.R'
     'mergeModelsByFeatures.R'
