@@ -1,11 +1,12 @@
-# An R Package for Loading and Processing Models Built with [[`regressoR`](http://www.github.com/thomasWeise/regressoR) and Annotating them with Features
+# An R Package for Loading and Processing Models Built with [`regressoR`](http://www.github.com/thomasWeise/regressoR) and Annotating them with Features
 
 [<img alt="Travis CI Build Status" src="https://img.shields.io/travis/thomasWeise/processMineR.models/master.svg" height="20"/>](https://travis-ci.org/thomasWeise/processMineR.models/)
 
 ## Introduction
 
-Description: With this package, we can load the models trained with the `regressoR` package and annotate them features.
-You can also merge different model sets based on the feature values.
+Description: With this package, we can load the models trained with the [`regressoR`](http://www.github.com/thomasWeise/regressoR) package and annotate them features.
+You can also merge different model sets based on the feature values or just via direct selections.
+And you can plot the data as well.
 
 ## Installation
 
