@@ -8,7 +8,7 @@ batchPlot.Models(models, log = "", plotPoints = FALSE, plotFun = TRUE,
   printNames = (length(models) < 10))
 }
 \arguments{
-\item{models}{an instance or list of \code{\link{Model}}}
+\item{models}{an instance or list of \code{\link{Models}}}
 
 \item{log}{the logarithmic scaling info for the axes}
 

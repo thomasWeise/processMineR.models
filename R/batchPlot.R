@@ -1,6 +1,6 @@
 #' @title Plot all the Curves from a List of Models
 #' @description A simple utility method for visualizing the data.
-#' @param models an instance or list of \code{\link{Model}}
+#' @param models an instance or list of \code{\link{Models}}
 #' @param log the logarithmic scaling info for the axes
 #' @param plotPoints should the points be plotted?
 #' @param plotFun should the fitted function models be plotted?
