@@ -4,19 +4,34 @@
 \alias{batchPlot.Models}
 \title{Plot all the Curves from a List of Models}
 \usage{
-batchPlot.Models(models, log = "", plotPoints = FALSE, plotFun = TRUE,
-  printNames = (length(models) < 10))
+batchPlot.Models(models, names = if (length(models) < 10) Models.names(models)
+  else NULL, ...)
 }
 \arguments{
 \item{models}{an instance or list of \code{\link{Models}}}
 
-\item{log}{the logarithmic scaling info for the axes}
+\item{names}{the model names, or \code{NULL} if they should not be printed}
 
-\item{plotPoints}{should the points be plotted?}
-
-\item{plotFun}{should the fitted function models be plotted?}
-
-\item{printNames}{should the model names be printed as legend}
+\item{...}{Arguments passed on to \code{plotteR::batchPlot.list}
+\describe{
+  \item{plotXY}{should the \code{x-y} points be plotted (if \code{yfun} is not
+\code{NULL})}
+  \item{widthXY}{the line width for points to be plotted (only considered if
+\code{plotXY} is \code{TRUE} and \code{yfun} is not \code{NULL})}
+  \item{plotXF}{should the \code{x-y} lines be plotted (if \code{ffun} is not
+\code{NULL})}
+  \item{widthXF}{the line width for lines to be plotted (only considered if
+\code{plotXF} is \code{TRUE} and \code{ffun} is not \code{NULL})}
+  \item{log}{the names of the axes (\code{x}, \code{y}) that should be
+logarithmically scaled}
+  \item{colors}{the colors to be used for the plot}
+  \item{xlab}{the label for the \code{x}-axis, or the empty string if no label
+is needed}
+  \item{ylab}{the label for the \code{y}-axis, or the empty string if no label
+is needed}
+  \item{legendPos}{the position of the legend, if a legend should be printed
+(see \code{names}), or \code{NULL} if no legend is needed}
+}}
 }
 \description{
 A simple utility method for visualizing the data.
