@@ -12,7 +12,7 @@ BugReports: http://www.github.com/thomasWeise/processMineR.models/issues
 Imports: data.table (>= 1.10.4.3),
          dataTransformeR (>= 0.8.10),
          methods (>= 3.3.2),
-         plotteR (>= 0.8.0),
+         plotteR (>= 0.8.3),
          regressoR (>= 0.8.6),
          regressoR.base (>= 0.8.5),
          regressoR.functional (>= 0.8.7),

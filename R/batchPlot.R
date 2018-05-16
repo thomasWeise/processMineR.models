@@ -14,7 +14,7 @@ batchPlot.Models <- function(models,
                    extract=function(model) model@models,
                    xfun=function(result) result@metric@x,
                    yfun=function(result) result@metric@y,
-                   ffun=function(result, x) result@result@f(x),
+                   ffun=function(result) result@result@f,
                    names=names,
                    ...)
 }
