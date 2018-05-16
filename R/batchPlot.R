@@ -11,10 +11,10 @@ batchPlot.Models <- function(models,
                              names=if(length(models)<10) Models.names(models) else NULL,
                              ...) {
   batchPlot.groups(data=models,
-                   extract=function(model) model@models,
-                   xfun=function(result) result@metric@x,
-                   yfun=function(result) result@metric@y,
-                   ffun=function(result) result@result@f,
+                   extract=function(x) x@models,
+                   xfun=function(x) x@metric@x,
+                   yfun=function(x) x@metric@y,
+                   ffun=function(x) x@result@f,
                    names=names,
                    ...)
 }
