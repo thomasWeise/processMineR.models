@@ -14,7 +14,7 @@ slow.tests <- is.na(Sys.getenv("TRAVIS", unset=NA))
   expect_true(is.numeric(result@time));
   expect_true(is.character(result@name));
   if(!(is.null(result@metric))) {
-    expect_identical(result@metric@quality(result@result@f), result@result@quality);
+    expect_equal(result@metric@quality(result@result@f), result@result@quality);
   }
 }
 
