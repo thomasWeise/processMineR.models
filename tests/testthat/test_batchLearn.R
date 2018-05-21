@@ -68,11 +68,11 @@ slow.tests <- is.na(Sys.getenv("TRAVIS", unset=NA))
 
 .test <- function(cores) {
   data <- .make.data();
-  output <- processMineR.batchModel(source=data[2],
-                                            q=0, learn.single = TRUE, learn.all = FALSE,
-                                            returnResults = TRUE,
-                                            cores=cores,
-                                            logging = FALSE);
+  output <- Models.batchLearn(source=data[2],
+                              learn.single = TRUE, learn.all = FALSE,
+                              returnResults = TRUE,
+                              cores=cores,
+                              logging = FALSE);
   expect_length(output, 11L);
   for(res in output) {
     .check(res);
@@ -81,19 +81,19 @@ slow.tests <- is.na(Sys.getenv("TRAVIS", unset=NA))
 }
 
 
-test_that("Test Models.batchLoad I", {
+test_that("Test Models.batchLearn I", {
   .test(cores=1L);
 })
 
-test_that("Test Models.batchLoad II", {
+test_that("Test Models.batchLearn II", {
   .test(cores=2L);
 })
 
-test_that("Test Models.batchLoad III", {
+test_that("Test Models.batchLearn III", {
   if(slow.tests) { .test(cores=3L); }
 })
 
-test_that("Test Models.batchLoad IIII", {
+test_that("Test Models.batchLearn IIII", {
   if(slow.tests) { .test(cores=4L); }
 })
 
