@@ -17,6 +17,7 @@ Imports: data.table (>= 1.10.4.3),
          regressoR.base (>= 0.8.5),
          regressoR.functional (>= 0.8.7),
          regressoR.quality (>= 0.8.4),
+         regressoR.splines (>= 0.8.0),
          utils (>= 3.3.2),
          utilizeR (>= 0.8.3)
 Suggests: testthat (>= 2.0.0),
@@ -30,6 +31,7 @@ Remotes: github::thomasWeise/dataTransformeR,
          github::thomasWeise/regressoR.base,
          github::thomasWeise/regressoR.functional,
          github::thomasWeise/regressoR.quality,
+         github::thomasWeise/regressoR.splines,
          github::thomasWeise/utilizeR
 RoxygenNote: 6.0.1.9000
 Collate: 
@@ -42,6 +44,7 @@ Collate:
     'featuresTxtLoader.R'
     'featuresDefaultLoader.R'
     'batchLoad.R'
+    'batchModel.R'
     'batchPlot.R'
     'joinNames.R'
     'mergeModelsBySelection.R'
