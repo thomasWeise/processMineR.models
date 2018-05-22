@@ -1,8 +1,15 @@
 # check and try to convert a numeric vector to an integer vector
 .check.numeric <- function(vec) {
-  test <- as.integer(vec);
-  if(all((test - vec) < .Machine$double.eps, na.rm = TRUE)) test
-  else vec
+  suppressWarnings({
+    test <- as.integer(vec);
+    if(any(is.na(test) | (!is.finite(test)))) { return(vec); }
+    check <- abs(test - vec);
+    if(any(is.na(check) | (!is.finite(check)))) { return(vec); }
+    if(all(check < .Machine$double.eps, na.rm = TRUE)) {
+      return(test);
+    }
+    return(vec);
+  });
 }
 
 #' @title Get a Vector with the Values of one Feature for all Models
