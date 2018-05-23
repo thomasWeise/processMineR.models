@@ -4,10 +4,14 @@
 \alias{Models.batchLearn}
 \title{Batch-Learn Regression Models for Process Mining}
 \usage{
-Models.batchLearn(learners = .default, cores = detectCores(), ...)
+Models.batchLearn(q = 0.2, learners = if (q > 0.15) .defaultB else
+  .defaultA, cores = detectCores(), ...)
 }
 \arguments{
-\item{learners}{the model learners to be applied}
+\item{q}{the modeling effort to be applied}
+
+\item{learners}{the model learners to be applied, which has direct
+implications on the runtime, fitting quality, and models tested}
 
 \item{cores}{the number of cores to use (\code{>1L} leads to parallel
 execution)}
@@ -36,7 +40,6 @@ dataset into a set of transformed data instances}
 models}
   \item{suffix.all}{the suffix to be applied to the files containing the models
 of all files in a folder}
-  \item{q}{the modelling quality parameter}
   \item{includeMetric}{should the metric used for learning be stored in the
 files}
   \item{logging}{should progress information be printed: either \code{TRUE} for
