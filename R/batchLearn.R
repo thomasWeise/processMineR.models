@@ -1,14 +1,7 @@
 # create the default models
-#' @importFrom regressoR.functional FunctionalModel.makeLearners
-#' @importFrom regressoR.functional.models FunctionalModel.linear FunctionalModel.constant
-.default <- unlist(c(regressoR.spline.protected(),
-                    FunctionalModel.makeLearners(
-                      models=c(FunctionalModel.linear(),
-                               FunctionalModel.constant()))),
-                   recursive=TRUE);
+#' @importFrom regressoR.splines regressoR.spline.protected
+.default <- regressoR.spline.protected();
 .default <- force(.default);
-for(f in .default) { f <- force(f); }
-
 
 #' @title Batch-Learn Regression Models for Process Mining
 #' @description This is a wrapper around
@@ -19,7 +12,6 @@ for(f in .default) { f <- force(f); }
 #'   execution)
 #' @export Models.batchLearn
 #' @importFrom parallel detectCores
-#' @importFrom regressoR.splines regressoR.spline.protected
 #' @importFrom regressoR regressoR.batchLearn
 #' @inheritDotParams regressoR::regressoR.batchLearn -learners -cores
 Models.batchLearn <- function(learners=.default,
