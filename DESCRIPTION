@@ -1,7 +1,7 @@
 Package: processMineR.models
 Type: Package
 Title: An R Package for Loading and Processing Models Built with \code{regressoR} and Annotating them with Features
-Version: 0.8.1
+Version: 0.8.2
 Author: Dr. Thomas Weise <tweise@hfuu.edu.cn>
 Maintainer: Dr. Thomas Weise <tweise@hfuu.edu.cn>
 Description: With this package, we can load the models trained with the \code{regressoR} package and annotate them features. You can also merge different model sets based on the feature values.
@@ -10,16 +10,16 @@ Encoding: UTF-8
 URL: http://www.github.com/thomasWeise/processMineR.models
 BugReports: http://www.github.com/thomasWeise/processMineR.models/issues
 Imports: data.table (>= 1.10.4.3),
-         dataTransformeR (>= 0.8.10),
+         dataTransformeR (>= 0.8.11),
          methods (>= 3.3.2),
-         plotteR (>= 0.8.3),
-         regressoR (>= 0.8.9),
-         regressoR.functional (>= 0.8.9),
-         regressoR.base (>= 0.8.5),
-         regressoR.quality (>= 0.8.4),
-         regressoR.splines (>= 0.8.5),
+         plotteR (>= 0.8.4),
+         regressoR (>= 0.8.10),
+         regressoR.functional (>= 0.8.10),
+         regressoR.base (>= 0.8.8),
+         regressoR.quality (>= 0.8.5),
+         regressoR.splines (>= 0.8.6),
          utils (>= 3.3.2),
-         utilizeR (>= 0.8.3)
+         utilizeR (>= 0.8.4)
 Suggests: testthat (>= 2.0.0),
           roxygen2 (>= 6.0.1)
 Depends: R (>= 3.3.0)
