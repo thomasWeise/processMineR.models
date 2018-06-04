@@ -4,8 +4,8 @@
 \alias{Models.batchLearn}
 \title{Batch-Learn Regression Models for Process Mining}
 \usage{
-Models.batchLearn(q = 0.2, learners = if (q > 0.15) .defaultB else
-  .defaultA, cores = detectCores(), ...)
+Models.batchLearn(q = 0.2, learners = .learners.for.q(q),
+  cores = detectCores(), ...)
 }
 \arguments{
 \item{q}{the modeling effort to be applied}
