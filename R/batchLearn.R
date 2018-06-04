@@ -16,6 +16,13 @@
                     recursive=TRUE));
 .defaultC <- force(.defaultC);
 
+# get the learners for a given value of q
+.learners.for.q <- function(q) {
+  if(q > 0.15) { return(.defaultC); }
+  if(q > 0.1)  { return(.defaultB); }
+  return(.defaultA);
+}
+
 
 #' @title Batch-Learn Regression Models for Process Mining
 #' @description This is a wrapper around
@@ -31,9 +38,7 @@
 #' @importFrom regressoR regressoR.batchLearn
 #' @inheritDotParams regressoR::regressoR.batchLearn -learners -cores -q
 Models.batchLearn <- function(q=0.2,
-                              learners=if(q > 0.15) { .defaultC } else {
-                                       if(q > 0.1)  { .defaultB } else {
-                                                      .defaultA } },
+                              learners=.learners.for.q(q),
                               cores=detectCores(),
                               ...) {
   pars <- list(...);
