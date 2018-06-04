@@ -31,9 +31,9 @@
 #' @importFrom regressoR regressoR.batchLearn
 #' @inheritDotParams regressoR::regressoR.batchLearn -learners -cores -q
 Models.batchLearn <- function(q=0.2,
-                              learners=if(q > 0.15) .defaultC else
-                                       if(q > 0.1)  .defaultB else
-                                                    .defaultA,
+                              learners=if(q > 0.15) { .defaultC } else {
+                                       if(q > 0.1)  { .defaultB } else {
+                                                      .defaultA } },
                               cores=detectCores(),
                               ...) {
   pars <- list(...);
