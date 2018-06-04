@@ -1,13 +1,20 @@
+# create the default models for lowest fitting effort
+#' @importFrom regressoR.direct regressoR.direct.default
+.defaultA <- regressoR.direct.default();
+.defaultA <- force(.defaultA);
+
 # create the default models for low fitting effort
 #' @importFrom regressoR.splines regressoR.spline.protected
-.defaultA <- regressoR.spline.protected();
-.defaultA <- force(.defaultA);
+.defaultB <- unique(unlist(c(.defaultA,
+                             regressoR.spline.protected()),
+                           recursive=TRUE));
+.defaultB <- force(.defaultB);
 
 # create the default models for high fitting effort
 #' @importFrom regressoR.functional FunctionalModel.monotonousLearners
-.defaultB <- unlist(c(.defaultA, FunctionalModel.monotonousLearners()),
-                    recursive=TRUE);
-.defaultB <- force(.defaultB);
+.defaultC <- unique(unlist(c(.defaultB, FunctionalModel.monotonousLearners()),
+                    recursive=TRUE));
+.defaultC <- force(.defaultC);
 
 
 #' @title Batch-Learn Regression Models for Process Mining
@@ -24,7 +31,9 @@
 #' @importFrom regressoR regressoR.batchLearn
 #' @inheritDotParams regressoR::regressoR.batchLearn -learners -cores -q
 Models.batchLearn <- function(q=0.2,
-                              learners=if(q > 0.15) .defaultB else .defaultA,
+                              learners=if(q > 0.15) .defaultC else
+                                       if(q > 0.1)  .defaultB else
+                                                    .defaultA,
                               cores=detectCores(),
                               ...) {
   pars <- list(...);
