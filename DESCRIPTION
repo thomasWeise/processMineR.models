@@ -1,7 +1,7 @@
 Package: processMineR.models
 Type: Package
 Title: An R Package for Loading and Processing Models Built with \code{regressoR} and Annotating them with Features
-Version: 0.8.3
+Version: 0.8.4
 Author: Dr. Thomas Weise <tweise@hfuu.edu.cn>
 Maintainer: Dr. Thomas Weise <tweise@hfuu.edu.cn>
 Description: With this package, we can load the models trained with the \code{regressoR} package and annotate them features. You can also merge different model sets based on the feature values.
