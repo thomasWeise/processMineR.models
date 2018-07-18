@@ -5,6 +5,8 @@
 #' @param names the model names, or \code{NULL} if they should not be printed
 #' @importFrom plotteR batchPlot.groups batchPlot.list
 #' @importClassesFrom regressoR RegressionResult
+#' @importFrom dataManageR datasets.names.get
+#' @importClassesFrom dataManageR dataset
 #' @inheritDotParams plotteR::batchPlot.list -data -names -xfun -yfun -ffun
 #' @export batchPlot.Models
 batchPlot.Models <- function(models,
