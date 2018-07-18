@@ -10,6 +10,7 @@ Encoding: UTF-8
 URL: http://www.github.com/thomasWeise/processMineR.models
 BugReports: http://www.github.com/thomasWeise/processMineR.models/issues
 Imports: data.table (>= 1.10.4.3),
+         dataManageR (>= 0.8.0),
          dataTransformeR (>= 0.8.11),
          methods (>= 3.3.2),
          plotteR (>= 0.8.4),
@@ -27,6 +28,7 @@ Depends: R (>= 3.3.0)
 ByteCompile: true
 LazyData: true
 Remotes: github::thomasWeise/dataTransformeR,
+         github::thomasWeise/dataManageR,
          github::thomasWeise/plotteR,
          github::thomasWeise/regressoR,
          github::thomasWeise/regressoR.base,
@@ -36,18 +38,3 @@ Remotes: github::thomasWeise/dataTransformeR,
          github::thomasWeise/regressoR.splines,
          github::thomasWeise/utilizeR
 RoxygenNote: 6.0.1.9000
-Collate: 
-    'Models.R'
-    'names.R'
-    'featureValues.R'
-    'featureNames.R'
-    'asDataFrame.R'
-    'batchLearn.R'
-    'makeNamesUnique.R'
-    'featuresTxtLoader.R'
-    'featuresDefaultLoader.R'
-    'batchLoad.R'
-    'batchPlot.R'
-    'joinNames.R'
-    'mergeModelsBySelection.R'
-    'mergeModelsByFeatures.R'

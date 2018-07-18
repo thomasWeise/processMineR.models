@@ -4,11 +4,12 @@
 \alias{batchPlot.Models}
 \title{Plot all the Curves from a List of Models}
 \usage{
-batchPlot.Models(models, names = if (length(models) < 10) Models.names(models)
-  else NULL, ...)
+batchPlot.Models(models, names = if (length(models) < 10)
+  datasets.names.get(models) else NULL, ...)
 }
 \arguments{
-\item{models}{an instance or list of \code{\link{Models}}}
+\item{models}{an instance or list of \code{\link[dataManageR]{dataset}}s with
+models in their data field}
 
 \item{names}{the model names, or \code{NULL} if they should not be printed}
 

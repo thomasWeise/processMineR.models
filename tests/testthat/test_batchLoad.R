@@ -68,42 +68,42 @@ slow.tests <- is.na(Sys.getenv("TRAVIS", unset=NA))
 
 .test <- function(cores) {
   data <- .make.data();
-  output <- regressoR::regressoR.batchLearn(source=data[2],
-                                            q=0, learn.single = TRUE, learn.all = FALSE,
-                                            returnResults = TRUE,
-                                            cores=cores,
-                                            logging = FALSE);
+  output <- regressoR.batchLearn(source=data[2],
+                                 q=0, learn.single = TRUE, learn.all = FALSE,
+                                 returnResults = TRUE,
+                                 cores=cores,
+                                 logging = FALSE);
   expect_length(output, 11L);
   for(res in output) {
     .check(res);
   }
 
-  results <- processMineR.models::Models.batchLoad(source=file.path(data[1], "models"),
-                                               cores=cores,
-                                               logging=FALSE,
-                                               featuresLoader=NULL);
+  results <- Models.batchLoad(path=file.path(data[1], "models"),
+                                             cores=cores,
+                                             logging=FALSE,
+                                             featuresLoader=NULL);
 
   expect_length(results, 3L);
 
   expect_identical(results[[1]]@name, "a");
-  expect_length(results[[1]]@models, 4L);
-  expect_equal(results[[1]]@models[[1]], output[[1]]);
-  expect_equal(results[[1]]@models[[2]], output[[2]]);
-  expect_equal(results[[1]]@models[[3]], output[[3]]);
-  expect_equal(results[[1]]@models[[4]], output[[4]]);
+  expect_length(results[[1]]@data, 4L);
+  expect_equal(results[[1]]@data[[1]], output[[1]]);
+  expect_equal(results[[1]]@data[[2]], output[[2]]);
+  expect_equal(results[[1]]@data[[3]], output[[3]]);
+  expect_equal(results[[1]]@data[[4]], output[[4]]);
 
   expect_identical(results[[2]]@name, "b");
-  expect_length(results[[2]]@models, 4L);
-  expect_equal(results[[2]]@models[[1]], output[[5]]);
-  expect_equal(results[[2]]@models[[2]], output[[6]]);
-  expect_equal(results[[2]]@models[[3]], output[[7]]);
-  expect_equal(results[[2]]@models[[4]], output[[8]]);
+  expect_length(results[[2]]@data, 4L);
+  expect_equal(results[[2]]@data[[1]], output[[5]]);
+  expect_equal(results[[2]]@data[[2]], output[[6]]);
+  expect_equal(results[[2]]@data[[3]], output[[7]]);
+  expect_equal(results[[2]]@data[[4]], output[[8]]);
 
   expect_identical(results[[3]]@name, "c");
-  expect_length(results[[3]]@models, 3L);
-  expect_equal(results[[3]]@models[[1]], output[[9]]);
-  expect_equal(results[[3]]@models[[2]], output[[10]]);
-  expect_equal(results[[3]]@models[[3]], output[[11]]);
+  expect_length(results[[3]]@data, 3L);
+  expect_equal(results[[3]]@data[[1]], output[[9]]);
+  expect_equal(results[[3]]@data[[2]], output[[10]]);
+  expect_equal(results[[3]]@data[[3]], output[[11]]);
 
   unlink(data[1], recursive = TRUE);
 }
