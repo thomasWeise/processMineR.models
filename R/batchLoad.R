@@ -10,7 +10,7 @@
 #'   \code{featureFolder} and \code{components} and returning a named list of
 #'   features, or \code{NULL} if no features are needed. see
 #'   \code{\link[dataManageR]{datasets.feature.load.default}} for documentation
-#' @param nameProcessor a function which receives a relativized path to the
+#' @param namer a function which receives a relativized path to the
 #'   folder with the current model(s) and returns a name for the models
 #' @param check.directory a function which can choose if a directory should be
 #'   followed or not
@@ -30,13 +30,13 @@ Models.batchLoad <- function(path=getwd(),
                              selector=path.extensionRegExp(extensions="model", before.extension="_single"),
                              featuresFolder=file.path(path, "../features"),
                              featuresLoader=datasets.feature.load.default,
-                             nameProcessor=identity,
+                             namer=identity,
                              check.directory=NULL,
                              cores=1L,
                              logging=(cores <= 1L)) {
 
   datasets.batchLoad(path=path, selector = selector, dataLoader=function(p) regressoR.loadResult(p),
                      featuresFolder = featuresFolder, featuresLoader = featuresLoader,
-                     nameProcessor = nameProcessor, check.directory = check.directory,
+                     namer = namer, check.directory = check.directory,
                      cores=cores, logging=logging);
 }

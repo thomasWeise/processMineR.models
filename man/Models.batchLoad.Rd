@@ -8,8 +8,8 @@
 Models.batchLoad(path = getwd(), selector = path.extensionRegExp(extensions
   = "model", before.extension = "_single"), featuresFolder = file.path(path,
   "../features"), featuresLoader = datasets.feature.load.default,
-  nameProcessor = identity, check.directory = NULL, cores = 1L,
-  logging = (cores <= 1L))
+  namer = identity, check.directory = NULL, cores = 1L, logging = (cores
+  <= 1L))
 }
 \arguments{
 \item{path}{the source folder}
@@ -24,7 +24,7 @@ Models.batchLoad(path = getwd(), selector = path.extensionRegExp(extensions
 features, or \code{NULL} if no features are needed. see
 \code{\link[dataManageR]{datasets.feature.load.default}} for documentation}
 
-\item{nameProcessor}{a function which receives a relativized path to the
+\item{namer}{a function which receives a relativized path to the
 folder with the current model(s) and returns a name for the models}
 
 \item{check.directory}{a function which can choose if a directory should be
